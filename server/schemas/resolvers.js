@@ -18,6 +18,7 @@ const resolvers = {
     },
     Mutation: {
         login: async (parent, body) => {
+          console.log("_________here____________")
           const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
         
         if (!user) {
@@ -40,6 +41,7 @@ const resolvers = {
             return {token, user};
           },
         saveBook: async (parent, body, context) => {
+          console.log(context.user._id);
             if (context.user) {
               const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user._id },

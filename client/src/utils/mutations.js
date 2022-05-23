@@ -31,16 +31,16 @@ export const SAVE_BOOK = gql`
   $authors:[String], 
   $description: String!,
   $bookId: String!,
-  $image: String.
+  $image: String,
   $link: String,
-  $title: String
+  $title: String!
   ) { saveBook(
     authors: $authors, 
     description: $description,
     bookId: $bookId,
-    image: $image.
+    image: $image,
     link: $link,
-    title: $title) 
+    title: $title)
     {
       _id
       username
